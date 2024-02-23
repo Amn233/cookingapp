@@ -1,23 +1,20 @@
+import 'package:cookinapp/home.dart';
 import 'package:flutter/material.dart';
 
-import 'home.dart';
-
 void main() {
-  runApp(Myapp());
-  }
-class Myapp extends StatelessWidget {
-  const Myapp({super.key});
+  runApp(const MyApp());
+}
 
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-        fontFamily:"Poppins",
-        primarySwatch: Colors.cyan
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        fontFamily: "Poppins"
       ),
-      home: Home(),
+      home: Home()
     );
   }
 }
-
