@@ -1,19 +1,17 @@
-class recipesmodel1 {
+class Recipemodel1{
+
   late String applabel;
-  late String appimgUrl;
   late double appcalories;
   late String appurl;
-
-  recipesmodel1(
-      {this.applabel = "LABEL",this.appcalories = 0.000 ,this.appimgUrl = "IMAGE",this.appurl = "URL"});
-
-  factory recipesmodel1.fromMap(Map recipe)
-
-  {
-    return recipesmodel1(
+  late String appimgurl;
+  Recipemodel1({
+    this.applabel="label",this.appcalories=0.0000,this.appimgurl="img",this.appurl="url"
+  });
+  factory Recipemodel1.fromMap(Map recipe){
+    return Recipemodel1(
         applabel: recipe["label"],
         appcalories: recipe["calories"],
-        appimgUrl: recipe["image"],
+        appimgurl: recipe["image"],
         appurl: recipe["url"]
     );
   }
