@@ -108,6 +108,7 @@ class _HomeState extends State<Home> {
                   ),
                   Container(
                       height: 100,
+                      margin: EdgeInsets.all(10),
                       child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
@@ -121,7 +122,7 @@ class _HomeState extends State<Home> {
                                 width: 200,
                                 height: 250,
                                 padding: EdgeInsets.all(10),
-                                margin: EdgeInsets.all(10),
+                                margin: EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                   color: Colors.pink.shade100,
                                   borderRadius: BorderRadius.circular(30),
