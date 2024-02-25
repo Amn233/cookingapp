@@ -53,7 +53,7 @@ class _HomeState extends State<Search> {
           Container(
             width: MediaQuery.of(context).size.height*2.2,
             height: MediaQuery.of(context).size.width*2.2,
-            color: Colors.cyan,
+            color: Colors.pink.shade100,
           ),
           SafeArea(
             child: SingleChildScrollView(
@@ -122,14 +122,14 @@ class _HomeState extends State<Search> {
                                         bottom: 5,
                                         right: 0,
                                         child: Container(
-                                            child: Text(recipelist[index].applabel,style: TextStyle(fontSize: 25,color: Colors.white),))),
+                                            child: Text(recipelist[index].applabel,style: TextStyle(fontSize: 23,color: Colors.white),))),
                                     Positioned(
                                         right: 10,
                                         child: Container(
                                             child: Row(
                                               children: [
-                                                Icon(Icons.local_fire_department,color: Colors.cyan,),
-                                                Text(recipelist[index].appcalories.toString().substring(0,5),style: TextStyle(fontSize: 24,color: Colors.cyan,fontWeight: FontWeight.bold),),
+                                                Icon(Icons.local_fire_department,color: Colors.pink.shade300,),
+                                                Text(recipelist[index].appcalories.toString().substring(0,5),style: TextStyle(fontSize: 24,color: Colors.pink.shade300,fontWeight: FontWeight.bold),),
                                               ],
                                             )))
 

@@ -13,6 +13,7 @@ class Recipemodel1{
         appcalories: recipe["calories"],
         appimgurl: recipe["image"],
         appurl: recipe["url"]
+
     );
   }
 }
