@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:cookinapp/recipemodel.dart';
-import 'package:cookinapp/recipeview.dart';
-import 'package:cookinapp/search.dart';
+import 'package:cookingApp/recipemodel.dart';
+import 'package:cookingApp/recipeview.dart';
+import 'package:cookingApp/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -69,19 +69,36 @@ class _HomeState extends State<Search> {
                     child: Row(
                       children: [
                         Container(child: GestureDetector(
-                            onTap: (){
+                            onTap: ()async{
                               print("search text ${searchcontroller.text}");
                               if(searchcontroller.text.isEmpty){
                                 print("Blank search");
                               }
                               else{
-                                Navigator.push(context,  MaterialPageRoute(builder: (context)=>Search(searchcontroller.text)));
+                              await  Navigator.push(context,  MaterialPageRoute(builder: (context)=>Search(searchcontroller.text)));
+                                searchcontroller.text="";
                               }
                             },
                             child: Icon(Icons.search)),margin: EdgeInsets.symmetric(horizontal: 10),),
                         Expanded(
                           child: TextField(
                             controller: searchcontroller,
+                            textInputAction: TextInputAction.search,
+                            onSubmitted: (value){
+                              if(searchcontroller.text.isEmpty){
+                                print("Blank search");
+                              }
+                              else{
+                                 Navigator.push(context,  MaterialPageRoute(builder: (context)=>Search(searchcontroller.text))).
+                                 then((value) =>{
+                                   setState(() {
+                                     searchcontroller.text="";
+                                   })
+                                 });
+
+                              }
+
+                            },
                             decoration: InputDecoration(
                                 hintText: "Let's Cook Something New",
                                 border: InputBorder.none

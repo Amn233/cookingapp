@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:cookinapp/recipemodel.dart';
-import 'package:cookinapp/recipeview.dart';
-import 'package:cookinapp/search.dart';
+import 'package:cookingApp/recipemodel.dart';
+import 'package:cookingApp/recipeview.dart';
+import 'package:cookingApp/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -76,12 +76,29 @@ class _HomeState extends State<Home> {
                               }
                               else{
                                 Navigator.push(context,  MaterialPageRoute(builder: (context)=>Search(searchcontroller.text)));
+                                searchcontroller.text="";
                               }
                             },
                             child: Icon(Icons.search)),margin: EdgeInsets.symmetric(horizontal: 10),),
                         Expanded(
                           child: TextField(
                             controller: searchcontroller,
+                            textInputAction: TextInputAction.search,
+                            onSubmitted: (value){
+                              if(searchcontroller.text.isEmpty){
+                                print("Blank search");
+                              }
+                              else{
+                                Navigator.push(context,  MaterialPageRoute(builder: (context)=>Search(searchcontroller.text))).
+                                then((value) =>{
+                                  setState(() {
+                                    searchcontroller.text="";
+                                  })
+                                });
+
+                              }
+
+                            },
                             decoration: InputDecoration(
                                 hintText: "Let's Cook Something New",
                                 border: InputBorder.none
@@ -120,17 +137,17 @@ class _HomeState extends State<Home> {
                               },
                               child: Container(
                                 width: 200,
-                                height: 250,
+                                height: 180,
                                 padding: EdgeInsets.all(10),
                                 margin: EdgeInsets.all(12),
                                 decoration: BoxDecoration(
-                                  color: Colors.pink.shade100,
-                                  borderRadius: BorderRadius.circular(30),
-                                  boxShadow: [BoxShadow(
-                                    color: Colors.pink,
-                                    blurRadius:15,
-                                    spreadRadius: 1
-                                  )]
+                                    color: Colors.pink.shade100,
+                                    borderRadius: BorderRadius.circular(30),
+                                    boxShadow: [BoxShadow(
+                                        color: Colors.pink,
+                                        blurRadius:15,
+                                        spreadRadius: 1
+                                    )]
                                 ),
                                 child: Center(child: Text(recipecart[index]["heading"],style: TextStyle(fontSize: 23,color: Colors.pink),)),
                               ),

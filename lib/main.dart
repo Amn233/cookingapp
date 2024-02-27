@@ -1,5 +1,7 @@
-import 'package:cookinapp/home.dart';
+import 'package:cookingApp/main.dart';
 import 'package:flutter/material.dart';
+
+import 'home.dart';
 
 void main() {
   runApp(const MyApp());
